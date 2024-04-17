@@ -1,0 +1,85 @@
+/* Week View Page */
+
+/* Title styling */
+.week-view h1 {
+  font-size: 24px; /* Font size */
+  color: #333; /* Text color */
+  margin-bottom: 20px; /* Bottom margin */
+  font-family: cursive; /* Font family */
+  font-weight: bold; /* Font weight */
+}
+
+/* Overall layout styling */
+.week-view {
+  max-width: 800px; /* Maximum width */
+  margin: 0 auto; /* Center horizontally */
+  font-family: Arial, sans-serif; /* Font family for the entire component */
+}
+
+/* Header styling */
+.header {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center vertically */
+  margin-bottom: 20px; /* Bottom margin */
+}
+
+/* Grid layout for days */
+.grid {
+  display: grid; /* Use CSS grid for layout */
+  grid-template-columns: repeat(7, 1fr); /* 7 columns with equal width */
+  grid-gap: 10px; /* Gap between grid items */
+}
+
+/* Styling for individual days */
+.day {
+  border: 1px solid #ccc; /* Border */
+  padding: 15px; /* Padding */
+  text-align: center; /* Center align text */
+  font-weight: bold; /* Font weight */
+  background-color: #f0f0f0; /* Light grey background */
+}
+
+/* Navigation buttons and dropdown */
+button {
+  padding: 10px 20px; /* Padding */
+  margin-right: 10px; /* Right margin */
+  cursor: pointer; /* Cursor type */
+  background-color: #007bff; /* Background color */
+  color: #fff; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Border radius */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Applied margin only to buttons except the last one */
+button:not(:last-child) {
+  margin-right: 10px; /* Right margin */
+}
+
+select {
+  padding: 8px; /* Padding */
+  border-radius: 5px; /* Border radius */
+  border: 1px solid #ccc; /* Border */
+  margin-right: 10px; /* Right margin */
+}
+
+/* Bookings Display */
+.booking-column {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items vertically */
+}
+
+.booking {
+  padding: 12px; /* Padding */
+  margin-bottom: 8px; /* Bottom margin */
+  border: 1px solid #ccc; /* Border */
+  border-radius: 5px; /* Border radius */
+  cursor: pointer; /* Cursor type */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Hover effect for bookings */
+.booking:hover {
+  background-color: #f5f5f5; /* Light gray background on hover */
+}

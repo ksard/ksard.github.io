@@ -1,0 +1,33 @@
+<div class="week-view">
+  <h1>Roadsurfer</h1> <!-- Title of the page -->
+
+  <!-- Header section with navigation buttons and station selection -->
+  <div class="header">
+    <button (click)="previousYear()">Previous Year</button> <!-- Button to navigate to the previous year -->
+    <button (click)="previousMonth()">Previous Month</button> <!-- Button to navigate to the previous month -->
+    <button (click)="previousWeek()">Previous Week</button> <!-- Button to navigate to the previous week -->
+    <select [(ngModel)]="selectedStation" (change)="setStationId($event); fetchBookings()">
+      <!-- Dropdown menu to select a station -->
+      <option *ngFor="let station of stations" [value]="station.id">{{ station.name }}</option>
+    </select>
+    <button (click)="nextWeek()">Next Week</button> <!-- Button to navigate to the next week -->
+    <button (click)="nextMonth()">Next Month</button> <!-- Button to navigate to the next month -->
+    <button (click)="nextYear()">Next Year</button> <!-- Button to navigate to the next year -->
+  </div>
+
+  <!-- Grid section displaying days of the week and bookings -->
+  <div class="grid">
+    <!-- Display days of the week -->
+    <div class="day" *ngFor="let day of weekDays">
+      <div>{{ day }}</div> <!-- Day of the week -->
+      <div>{{ getFormattedDateForDay(day) }}</div> <!-- Date formatted for the corresponding day -->
+    </div>
+
+    <!-- Display bookings for each day -->
+    <div class="booking-column" *ngFor="let dayBookings of bookingsByDay; let i = index">
+      <div class="booking" *ngFor="let booking of dayBookings" (click)="bookingClicked(booking)">
+        <div>{{ booking.customerName }}</div> <!-- Display customer name -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="booking-details-container">
+    <!-- Booking Details Heading -->
+    <h2 class="booking-details-heading">Booking Details</h2>
+    
+    <!-- Booking Details Information -->
+    <div class="booking-details-info">
+        <!-- Customer Name -->
+        <p><strong class="customer-name">Customer Name:</strong> {{ booking.customerName }}</p>
+        
+        <!-- Start Date -->
+        <p><strong>Start Date:</strong> {{ booking.startDate | date: 'mediumDate' }}</p>
+        
+        <!-- End Date -->
+        <p><strong>End Date:</strong> {{ booking.endDate | date: 'mediumDate' }}</p>
+        
+        <!-- Duration -->
+        <p><strong>Duration:</strong> {{ calculateDuration(booking.startDate, booking.endDate) }} days</p>
+        
+        <!-- Station Name -->
+        <p><strong>Station Name:</strong> {{ booking.selectedStationName }}</p>
+    </div>
+    
+    <!-- Back Button -->
+    <button class="back-button" (click)="goBack()">Back to Week View</button>
+</div>
