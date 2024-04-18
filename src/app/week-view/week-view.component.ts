@@ -47,20 +47,22 @@ export class WeekViewComponent {
   fetchBookings() {
     let bookings: any = [];
     this.fetchBookingsForStation(this.selectedStation).subscribe((res)=> {
-        bookings = res; // Assign fetched bookings to the local variable
+        bookings = res; // Assigned fetched bookings to the local variable
 
         // Initialize bookingsByDay array
         this.bookingsByDay = Array(7).fill([]).map(() => []);
 
         // Group bookings by day of the week
         bookings.forEach((booking:any) => {
+          const startDate = new Date(booking.startDate);
+          const dayOfWeek = startDate.getDay();
             // Calculate the difference in days between the booking start date and the current week start date
-            const diffDays = Math.floor((new Date(booking.startDate).getTime() - this.currentWeekStartDate.getTime()) / (1000 * 60 * 60 * 24));
+            const diffDays = Math.floor((startDate.getTime() - this.currentWeekStartDate.getTime()) / (1000 * 60 * 60 * 24));
             
-            // Ensure that the booking falls within the current week
+            // Ensuring that the booking falls within the current week
             if (diffDays >= 0 && diffDays < 7) {
                 // Push the booking into the respective day array
-                this.bookingsByDay[diffDays].push(booking);
+                this.bookingsByDay[dayOfWeek].push(booking);
             }
         });
     });

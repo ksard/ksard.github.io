@@ -16,7 +16,15 @@ export class BookingDetailsComponent implements OnInit {
     // When the component initializes, subscribe to query parameter changes
     // to retrieve the booking details passed from the previous component
     this.route.queryParams.subscribe(params => {
-      this.booking = JSON.parse(params['booking']); // Parse the JSON string to an object
+      const bookingParam = params['booking']; // Retrieve the booking parameter
+  
+      // If the booking parameter is defined and not empty
+      if (bookingParam) {
+        this.booking = JSON.parse(bookingParam); // Parse the JSON string to an object
+      } else {
+        // Handle the case where the booking parameter is not provided
+        console.error('Booking details not provided.');
+      }
     });
   }
 
